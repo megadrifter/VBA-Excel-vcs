@@ -2,30 +2,30 @@ Attribute VB_Name = "sents_VerControl"
 
 
 Sub sents_Version_control_v0()
-Attribute sents_Version_control_v0.VB_Description = "Название, тема, категория, состояние, ключевые слова, примечание"
+Attribute sents_Version_control_v0.VB_Description = "ГЌГ Г§ГўГ Г­ГЁГҐ, ГІГҐГ¬Г , ГЄГ ГІГҐГЈГ®Г°ГЁГї, Г±Г®Г±ГІГ®ГїГ­ГЁГҐ, ГЄГ«ГѕГ·ГҐГўГ»ГҐ Г±Г«Г®ГўГ , ГЇГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ"
 Attribute sents_Version_control_v0.VB_ProcData.VB_Invoke_Func = " \n14"
 '
-' Version_control_v0 Макрос
-' Название, тема, категория, состояние, ключевые слова, примечание
+' Version_control_v0 ГЊГ ГЄГ°Г®Г±
+' ГЌГ Г§ГўГ Г­ГЁГҐ, ГІГҐГ¬Г , ГЄГ ГІГҐГЈГ®Г°ГЁГї, Г±Г®Г±ГІГ®ГїГ­ГЁГҐ, ГЄГ«ГѕГ·ГҐГўГ»ГҐ Г±Г«Г®ГўГ , ГЇГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ
 '
-Debug.Print "Название: " & ActiveWorkbook.title
-Debug.Print "тема: " & ActiveWorkbook.Subject
-'Debug.Print "категория: " & ActiveWorkbook.Title
-Debug.Print "состояние: " & ActiveWorkbook.BuiltinDocumentProperties("Content status")
-Debug.Print "ключевые слова: " & ActiveWorkbook.Keywords
-Debug.Print "примечание: " & ActiveWorkbook.Comments
-Debug.Print "имя файла: " & ActiveWorkbook.Name
-Debug.Print "путь к папке: " & ActiveWorkbook.Path;
-' автор Author
-'Debug.Print "категория: " & ActiveWorkbook.Title
-'Debug.Print "категория: " & ActiveWorkbook.Title
+Debug.Print "ГЌГ Г§ГўГ Г­ГЁГҐ: " & ActiveWorkbook.title
+Debug.Print "ГІГҐГ¬Г : " & ActiveWorkbook.Subject
+'Debug.Print "ГЄГ ГІГҐГЈГ®Г°ГЁГї: " & ActiveWorkbook.Title
+Debug.Print "Г±Г®Г±ГІГ®ГїГ­ГЁГҐ: " & ActiveWorkbook.BuiltinDocumentProperties("Content status")
+Debug.Print "ГЄГ«ГѕГ·ГҐГўГ»ГҐ Г±Г«Г®ГўГ : " & ActiveWorkbook.Keywords
+Debug.Print "ГЇГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: " & ActiveWorkbook.Comments
+Debug.Print "ГЁГ¬Гї ГґГ Г©Г«Г : " & ActiveWorkbook.Name
+Debug.Print "ГЇГіГІГј ГЄ ГЇГ ГЇГЄГҐ: " & ActiveWorkbook.Path;
+' Г ГўГІГ®Г° Author
+'Debug.Print "ГЄГ ГІГҐГЈГ®Г°ГЁГї: " & ActiveWorkbook.Title
+'Debug.Print "ГЄГ ГІГҐГЈГ®Г°ГЁГї: " & ActiveWorkbook.Title
 
 
 End Sub
 Sub sents_Save_new_version()
 Attribute sents_Save_new_version.VB_ProcData.VB_Invoke_Func = " \n14"
 '
-' Макрос2 Макрос
+' ГЊГ ГЄГ°Г®Г±2 ГЊГ ГЄГ°Г®Г±
 '
 ' get original path and name
 sents_subfolder_name = "S_versions"
@@ -42,9 +42,9 @@ file_title = ActiveWorkbook.title
  
  
  
- '   ChDir "C:\_data\Projects\Портфель продуктов"
+ '   ChDir "C:\_data\Projects\ГЏГ®Г°ГІГґГҐГ«Гј ГЇГ°Г®Г¤ГіГЄГІГ®Гў"
   '  ActiveWorkbook.SaveAs Filename:= _
-  '      "C:\_data\Projects\Портфель продуктов\2016-06-06-Sales-activities1.xlsx", _
+  '      "C:\_data\Projects\ГЏГ®Г°ГІГґГҐГ«Гј ГЇГ°Г®Г¤ГіГЄГІГ®Гў\2016-06-06-Sales-activities1.xlsx", _
   '      FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
         
 
@@ -74,7 +74,7 @@ Sub sents_SetVersion(Optional ver)
 
 If (IsMissing(ver)) Then
 On Error GoTo Quit
-        ver = CInt(InputBox("Введите номер версии (одно целое число)", "Версия?", ActiveWorkbook.CustomDocumentProperties("S_version").Value))
+        ver = CInt(InputBox("Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГўГҐГ°Г±ГЁГЁ (Г®Г¤Г­Г® Г¶ГҐГ«Г®ГҐ Г·ГЁГ±Г«Г®)", "Г‚ГҐГ°Г±ГЁГї?", ActiveWorkbook.CustomDocumentProperties("S_version").Value))
 End If
 
 
@@ -108,7 +108,7 @@ End If
 'if no argument is given
 If (IsMissing(s_title)) Then
 On Error GoTo Quit
-        s_title = InputBox("Введите имя документа. Старое имя: " & old_title & ", имя файла: " & ActiveWorkbook.Name, "Имя?", ActiveWorkbook.Name)
+        s_title = InputBox("Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї Г¤Г®ГЄГіГ¬ГҐГ­ГІГ . Г‘ГІГ Г°Г®ГҐ ГЁГ¬Гї: " & old_title & ", ГЁГ¬Гї ГґГ Г©Г«Г : " & ActiveWorkbook.Name, "Г€Г¬Гї?", ActiveWorkbook.Name)
         
 End If
 
@@ -117,4 +117,4 @@ ActiveWorkbook.CustomDocumentProperties("S_title").Value = s_title
 Quit:
 End Sub
 
-
+' РєРѕРґРёСЂРѕРІРєР°... 
